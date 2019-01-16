@@ -2,31 +2,64 @@ import java.awt.Color;
 
 public class Coche {
 	
-	String modelo = "focus";
-	int potencia = 100;
-	Color color = Color.WHITE;
+	private static int cont = 0;
 	
-	void arrancarMotor() {
-		
+	private String modelo;
+	private int potencia;
+	private Color color;
+	
+	public Coche(){
+		cont++;
+		modelo = "focus";
+		potencia = 100;
+		color = Color.WHITE;		
 	}
 	
-	void pararMotor() {
-		
+	public Coche(String m, int p) {
+		cont++;
+		this.modelo = m;
+		this.potencia = p;
+		color = Color.WHITE;
 	}
 	
-	void tocarClaxon() {
-		
+	public Coche(String m, int p, Color c) {
+		cont++;
+		modelo = m;
+		potencia = p;
+		color = c;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getPotencia() {
+		return potencia;
+	}
+
+	public void setPotencia(int potencia) throws Exception {
+		if (potencia < 1) {
+			throw new Exception("Potencia incorrecta");
+		}
+		else {
+			this.potencia = potencia;
+		}
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public static int getCont() {
+		return cont;
 	}
 	
-	void acelerar() {
-		
-	}
-	
-	void frenar() {
-		
-	}
-	
-	void girar() {
-		
-	}
 }
